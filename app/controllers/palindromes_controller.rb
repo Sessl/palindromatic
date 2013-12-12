@@ -8,8 +8,10 @@ class PalindromesController < ApplicationController
 	end
 
 	def create
-		p=Palindrome.new(palindromes_params)
-        if p.save
+
+		@palindrome=Palindrome.new(palindromes_params)
+
+        if @palindrome.save
 		 redirect_to palindromes_path
 		else
 			redirect_to new_palindrome_path

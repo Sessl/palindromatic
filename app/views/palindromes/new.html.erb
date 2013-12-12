@@ -1,4 +1,18 @@
 <%= form_for @palindrome do |form| %>
+
+ <% if @palindrome.errors.any? %>
+  <div id="error_explanation">
+  	<h2><%= pluralize(@palindrome.errors.count, "error") %> prohibited
+  	this topic from being saved: </h2>
+
+  	<ul>
+  		<% @palindrome.errors.full_messages.each do |msg| %>
+  		<li><%= msg %></li>
+  		<% end %>
+  	 </ul>
+  </div>
+ <% end %>
+
   <%= form.label :name, "Enter a word:" %>
   <%= form.text_field :name %>
   <%= form.submit %>
